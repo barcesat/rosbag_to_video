@@ -39,12 +39,12 @@ python rosbag_to_video.py -source <bag_file_path> -topic <video_topic_name> -out
 ### Example:
 
 ```bash
-python rosbag_to_video.py -source /path/to/rosbag/ -topic /camera/image_raw -output /path/to/output_video.mp4
+python rosbag_to_video.py -source /path/to/rosbag/ -topic /camera/image_raw -output /path/to/output_video.mp4 -thumbnail /path/to/output_thumbnail.jpg
 ```
 
 ### Optional Parameters:
 
-- `-thumbnail <thumbnail_file_path>`: Saves the first frame of the video as a separate image (for debugging or reference).
+- `-thumbnail <thumbnail_file_path>`: Saves the first frame of the video as a separate JPEG image (for debugging or reference).
 - `-width <video_frame_width>`: Specify the width of the video frames (defaults to the width of the first frame).
 - `-height <video_frame_height>`: Specify the height of the video frames (defaults to the height of the first frame).
 
@@ -53,3 +53,4 @@ python rosbag_to_video.py -source /path/to/rosbag/ -topic /camera/image_raw -out
 - The script automatically determines the correct frame rate based on the timestamps in the bag file.
 - Both uncompressed (`sensor_msgs/Image`) and compressed (`sensor_msgs/CompressedImage`) image messages are supported.
 - Ensure that the topic specified contains image data; otherwise, the script will not extract any frames.
+- Ensure that the path is valid, the script will not create folder in the path if it's not valid.
